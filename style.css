@@ -128,12 +128,16 @@ img {
 }
 
 .fv__title {
-  width: 100%;
-  max-width: 780px;
+  display: inline-block;
   color: #0A325F;
   font-size: clamp(3.5rem, 5.86vw, 5rem);
-  writing-mode: vertical-lr;
-  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 700;
+  padding: 10px 20px;
+  position: absolute;
+  top: 40%;
+  left: 21.40%;
 }
 
 .top__news {
@@ -151,7 +155,9 @@ img {
   display: flex;
   align-items: center;
   gap: 30px;
-  margin-bottom: 30px;
+  border-bottom: 1px solid #0A325F;
+  padding-bottom: 5px;
+  margin-bottom: 45px;
 }
 
 .news__post-lists a:last-child {
@@ -223,11 +229,15 @@ img {
 
 .top__service__contents {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
   margin-top: 50px;
 }
 
 .top__service__content {
+  display: flex;
+  flex-direction: column;
   width: calc(326px /1080px *100%);
 }
 
@@ -237,9 +247,16 @@ img {
 }
 
 .top__service__text-box {
+  flex-grow: 1;
   background-color: #0A325F;
   color: #FFF;
   padding: 30px 35px;
+}
+
+.top__service__text-box h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
 }
 
 .access {
@@ -264,6 +281,26 @@ img {
 
 .access__text-box dl:last-child {
   margin-bottom: 0;
+}
+
+.top__contact {
+  background-color: #F2F2F2;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-bottom: 100px;
+}
+
+.top__contact__content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.top__contact__email {
+  display: inline-block;
+  background-color: #0A325F;
+  color: #fff;
+  padding: 30px 70px;
+  margin-top: 30px;
 }
 
 .footer {
@@ -303,6 +340,10 @@ img {
   animation: scrollRight 2s ease-in-out;
 }
 
+.page__title__box h2 {
+  color: #0A325F;
+}
+
 @keyframes scrollRight {
   0% {
     transform-origin: left;
@@ -314,16 +355,24 @@ img {
   }
 }
 
+.breadcrumb {
+  margin-top: 20px;
+}
+
+.breadcrumb a {
+  font-size: 14px;
+}
+
 .service {
-  margin-top: 80px;
-  margin-bottom: 150px;
+  padding-top: 80px;
+  padding-bottom: 150px;
 }
 
 .service__box {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 100px;
+  margin-bottom: 125px;
 }
 
 .service__box:nth-child(2n) {
@@ -340,18 +389,56 @@ img {
 
 .service__box__text-box h3 {
   margin-bottom: 15px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.service__box__text-box h3::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 100%;
+  background-color: #0A325F;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.service__box__text-box p {
+  line-height: 1.75;
+  margin-bottom: 15px;
+}
+
+.service__box__text-box p:last-child {
+  margin-bottom: 0;
 }
 
 .service__box__img {
   width: calc(343px / 1080px *100%);
 }
 
-.news-archive {
-  margin-top: 80px;
-  margin-bottom: 150px;
+.news-archive,
+.column-archive {
+  padding-top: 80px;
+  padding-bottom: 150px;
+  position: relative;
 }
 
-.news__post-lists .news-archive__post-item {
+.news-archive::after,
+.column-archive::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 90%;
+  background-color: #F2F2F2;
+  position: absolute;
+  top: 10%;
+  right: 0;
+  z-index: -1;
+}
+
+.news__post-lists .news-archive__post-item,
+.column__post-lists .column-archive__post-item {
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
@@ -371,6 +458,189 @@ img {
 }
 
 .pagination {
-  text-align: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.pagination__pager {
+  padding: 8px 12px;
+  color: #0A325F;
+  background-color: #fff;
+  border: 1px solid #0A325F;
+  transition: .2s;
+}
+
+.pagination__pager:hover {
+  color: #fff;
+  background-color: #0A325F;
+}
+
+.pagination__current {
+  color: #fff;
+  background-color: #0A325F;
+}
+
+.news-detail {
+  margin-top: 75px;
+  margin-bottom: 150px;
+}
+
+.news-detail__content h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.news-detail__content__heading {
+  margin-top: 25px;
+}
+
+.back__btn {
+  background-color: #fff;
+  border: 1px solid #0A325F;
+}
+
+.back__btn:hover {
+  background-color: #0A325F;
+  color: #FFF;
+}
+
+.column__post-lists {
+  max-width: 780px;
+  margin: 50px auto 0;
+}
+
+.column__post-lists a {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid #0A325F;
+  padding-bottom: 5px;
+  margin-bottom: 45px;
+}
+
+.column__post-lists a:last-child {
+  margin-bottom: 0;
+}
+
+.lawyer {
+  margin-top: 80px;
+  margin-bottom: 150px;
+}
+
+.lawyer__img {
+  width: 100%;
+  height: 560px;
+  position: relative;
+}
+
+.lawyer__signature {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px 25px;
+  position: absolute;
+  top: 78%;
+  right: 7.5%;
+}
+
+.lawyer__introduce, .lawyer__career {
+  margin-top: 75px;
+}
+
+.lawyer__introduce h3, .lawyer__career h3 {
+  color: #0A325F;
+  padding-left: 20px;
+  position: relative;
+}
+
+.lawyer__introduce h3::before, .lawyer__career h3::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 100%;
+  background-color: #0A325F;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.lawyer__introduce h2, .lawyer__career h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.lawyer__career__lists {
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
+.lawyer__career__lists dl {
+  display: flex;
+  background-color: #F2F2F2;
+  padding: 15px 0;
+  border-bottom: 1px solid #fff;
+}
+
+.lawyer__career__lists dt {
+  width: calc(220px / 900px *100%);
+  border-right: 1px solid #0A325F;
+  padding: 5px 30px;
+}
+
+.lawyer__career__lists dd {
+  width: calc(680px / 900px *100%);
+  padding: 5px 30px;
+}
+
+.office {
+  margin-top: 75px;
+  margin-bottom: 150px;
+}
+
+.office__img {
+  width: 100%;
+  height: 560px;
+}
+
+.office__introduce {
+  margin-top: 25px;
+}
+
+.office__access {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.office__access h3 {
+  padding-left: 20px;
   margin-top: 50px;
+  position: relative;
+}
+
+.office__access h3::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 100%;
+  background-color: #0A325F;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.office__access__text-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px auto;
+}
+
+.access__text-box__item dt {
+  font-size: 20px;
+  border-top: 2px solid #0A325F;
+  padding-top: 3px;
+  margin-bottom: 8px;
 }
